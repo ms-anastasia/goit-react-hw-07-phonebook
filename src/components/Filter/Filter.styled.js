@@ -7,6 +7,7 @@ export const FilterHeader = styled.label`
   display: flex;
   flex-direction: column;
   padding-left: 20px;
+  margin-top: 15px;
 `;
 
 export const FilterInput = styled.input`

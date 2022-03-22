@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FormHeader, FormInput, FormButton } from "./Form.styled";
-import contactsActions from "../../redux/actions";
+import { addContact } from "../../redux/operations";
 import { useDispatch } from "react-redux";
 
 const Form = () => {
@@ -21,17 +21,17 @@ const Form = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    dispatch(contactsActions.formSubmitHandler({ name, number }));
-
-    reset();
-  };
-
   const reset = () => {
     setName("");
     setNumber("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(addContact({ name, number }));
+
+    reset();
   };
 
   return (
